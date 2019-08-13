@@ -1,2 +1,2 @@
 # airportSearch_mvvm
-Search airport location on the basis of Jason
+Search airport location on the basis of Json
