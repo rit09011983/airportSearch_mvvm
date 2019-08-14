@@ -15,7 +15,7 @@ protocol AirportListViewModelDelegate: class {
 class AirportListViewModel {
     
     weak var delegate: AirportListViewModelDelegate?
-    let isRemoteCall = false
+    let isRemoteCall = true
     
     var cityInfo = [Swifter]()
     var cityInfoFilter:[Swifter] = []
@@ -76,10 +76,10 @@ class AirportListViewModel {
     func callAirportApi() {
         if  isRemoteCall == true {
             
-            Callapi.getApiGenericCall(requestPath: ApiConstants.airports,httpMethod:"POST", callback: {(response) in DispatchQueue.main.async {
+            Callapi.getApiGenericCall(requestPath: ApiConstants.airports,httpMethod:"GET", callback: {(response) in DispatchQueue.main.async {
                 
                 if response != nil {
-                    self.cityInfo = response!.sorted(by:{ $0.city! < $1.city! })
+                    self.cityInfo = response!.filter{$0.city! != ""}.sorted(by:{ $0.city! < $1.city! })
                     self.delegate?.homeInfo(message: nil, status: true)
                 } else {
                     self.delegate?.homeInfo(message:Constants.SOMETHING_WRONG, status: false)
