@@ -156,7 +156,7 @@ class AirportListController:UIViewController,UITableViewDelegate, UITableViewDat
                     
                 }
                 
-                controller.swifter = _airportListViewModel!.cityInfo.filter{$0.woeid! != woeid}
+                controller.swifter = _airportListViewModel!.cityInfo.filter{$0.woeid! != woeid}.filter{$0.name! != ""}
                 
                 collapseDetailViewController = false
                 controller.navigationItem.leftBarButtonItem?.accessibilityIdentifier = "myLeftButton"
