@@ -1,5 +1,5 @@
 # airportSearch_mvvm
-Search airport location on the basis of airport Json 
+Search nearest airport on the basis of given search text from  airport Json 
 
  Code structure : Use Xcode 10.2.1
 
